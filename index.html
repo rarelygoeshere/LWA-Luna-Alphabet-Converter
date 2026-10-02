@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Little Witch Academia - Luna Alphabet Generator</title>
+<link rel="icon" type="image/png" href="assets/favicon-32x32.png" sizes="32x32"/>
+<link rel="icon" type="image/png" href="assets/favicon-16x16.png" sizes="16x16"/>
+<link type="text/css" rel="stylesheet" href="css/index.css">
+<script src="js/html2canvas.min.js"></script>
+<script src="js/FileSaver.min.js"></script>
+<script>function generate(){var user_string=document.getElementById('source').value;user_string=user_string.replace(/(?:\r\n|\r|\n)/g,'<br />');if(document.getElementById('lwafont').checked){document.getElementById('source').className="normal";document.getElementById('result').className="lwa";}else if(document.getElementById('lwafont_custom').checked){document.getElementById('source').className="normal";document.getElementById('result').className="custom";}else{document.getElementById('source').className="lwa";document.getElementById('result').className="normal";}document.getElementById('result').innerHTML=user_string;}function pngout(){var el=document.getElementById('result');var fs=el.style.fontSize,ts=el.style.textShadow,bg=el.style.backgroundColor;el.style.fontSize='70px';el.style.textShadow='none';el.style.backgroundColor='#1c211e';html2canvas(el,{background:'#1c211e',onrendered:function(canvas){el.style.fontSize=fs;el.style.textShadow=ts;el.style.backgroundColor=bg;canvas.toBlob(function(blob){saveAs(blob,"lunanova.png");});}});}</script>
+</head>
+<body>
+<div class="header">
+<img src="assets/lunanova.png" align="center" style="width:15%;height:auto;margin:0px auto;display:block" alt="Luna Nova">
+<h2 class="lwa" align="center">Luna Alphabet Generator</h2>
+</div>
+<form align="center">
+<textarea id="source" rows="5" cols="50" onkeyup="generate()" onchange="generate()"></textarea><br>
+<input type="radio" name="choice" id="lwafont" value="No punctuation" checked onclick="generate()" />No punctuation
+<input type="radio" name="choice" id="lwafont_custom" value="Custom punctuation" onclick="generate()" />Custom punctuation
+<input type="radio" name="choice" id="lwafont_reverse" value="Reverse" onclick="generate()" />Reverse Generator
+<input type="button" name="save" id="save" onclick="pngout()" value="PNGOUT" />
+</form>
+<div id="imagegenerated"><br>
+<p id="result" class="lwa"></p>
+</div>
+<footer align="center">
+<a href="assets/lwa_moonrunes.png">LWA Luna Alphabet Information</a><br>
+font by: <a href="https://fontstruct.com/fontstructions/show/1359073/lwa1-1">Nayas1</a> and some /a/nons on <a href="https://desuarchive.org/a/thread/152396359#p152413854">/a/</a> | mirror of <a href="https://ay.medyotan.ga/lunanova/">ay.medyotan.ga/lunanova</a> for archival use; <a href="old.htm">old</a> version. Modified mirror by <a href="https://little-witch-academia.fandom.com/wiki/User:CasuallyViewingThings">CasuallyViewingStuff</a>.
+</footer>
+</body>
+</html>
